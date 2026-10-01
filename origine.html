@@ -1,0 +1,913 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ORIGINE — ALKÉMIA</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      --black: #09070a;
+      --rose-soft: #f0ccd8;
+      --gold: #d9b878;
+      --cream: #fff7ef;
+      --muted: rgba(255, 247, 239, 0.72);
+      --line: rgba(255, 247, 239, 0.13);
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background:
+        radial-gradient(circle at 20% 10%, rgba(217,166,183,0.20), transparent 28%),
+        radial-gradient(circle at 82% 18%, rgba(217,184,120,0.13), transparent 25%),
+        radial-gradient(circle at 50% 90%, rgba(240,204,216,0.11), transparent 30%),
+        var(--black);
+      color: var(--cream);
+      font-family: 'Inter', sans-serif;
+      overflow-x: hidden;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      z-index: -2;
+      opacity: 0.18;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 300 300' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.45'/%3E%3C/svg%3E");
+      pointer-events: none;
+    }
+
+    body::after {
+      content: "";
+      position: fixed;
+      inset: 0;
+      z-index: -1;
+      background-image:
+        radial-gradient(circle, rgba(255,255,255,0.7) 0 1px, transparent 1.4px),
+        radial-gradient(circle, rgba(217,166,183,0.9) 0 1px, transparent 1.5px);
+      background-size: 90px 90px, 140px 140px;
+      background-position: 10px 20px, 70px 40px;
+      opacity: 0.13;
+      pointer-events: none;
+    }
+
+    .container { width: min(90%, 1180px); margin: auto; }
+    section { padding: 115px 0; position: relative; }
+
+    .nav {
+      position: fixed;
+      top: 22px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: min(90%, 1120px);
+      z-index: 20;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 15px 22px;
+      border: 1px solid rgba(255, 247, 239, 0.12);
+      background: rgba(9, 7, 10, 0.54);
+      backdrop-filter: blur(22px);
+      border-radius: 999px;
+      box-shadow: 0 20px 70px rgba(0,0,0,0.25);
+    }
+
+    .logo {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.35rem;
+      letter-spacing: 0.13em;
+      color: var(--cream);
+      text-decoration: none;
+    }
+
+    .nav-links { display: flex; gap: 26px; align-items: center; font-size: 0.84rem; }
+    .nav-links a { color: rgba(255,247,239,0.72); text-decoration: none; transition: 0.25s ease; }
+    .nav-links a:hover { color: var(--rose-soft); }
+
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      padding-top: 140px;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.02fr 0.98fr;
+      gap: 72px;
+      align-items: center;
+    }
+
+    .eyebrow {
+      text-transform: uppercase;
+      letter-spacing: 0.26em;
+      font-size: 0.72rem;
+      color: rgba(240,204,216,0.78);
+      margin-bottom: 24px;
+      font-weight: 500;
+    }
+
+    h1, h2, h3 { font-family: 'Cormorant Garamond', serif; font-weight: 500; }
+
+    h1 {
+      font-size: clamp(4.5rem, 9vw, 8.5rem);
+      line-height: 0.86;
+      letter-spacing: -0.06em;
+      margin-bottom: 32px;
+      color: var(--rose-soft);
+      text-shadow: 0 0 35px rgba(240,204,216,0.18);
+    }
+
+    .hero p, .text {
+      font-size: 1.05rem;
+      line-height: 1.95;
+      color: var(--muted);
+      max-width: 680px;
+      margin-bottom: 24px;
+    }
+
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 15px 28px;
+      min-height: 54px;
+      border-radius: 999px;
+      text-decoration: none;
+      color: var(--cream);
+      transition: 0.3s ease;
+      border: 1px solid rgba(255,247,239,0.16);
+      background: linear-gradient(135deg, rgba(217,166,183,0.22), rgba(217,184,120,0.10));
+      box-shadow: 0 18px 50px rgba(217,166,183,0.10);
+      margin-top: 16px;
+    }
+
+    .button:hover {
+      transform: translateY(-2px);
+      background: linear-gradient(135deg, rgba(217,166,183,0.32), rgba(217,184,120,0.18));
+    }
+
+    .hero-image {
+      height: 680px;
+      border-radius: 38px;
+      overflow: hidden;
+      border: 1px solid rgba(255,247,239,0.13);
+      box-shadow: 0 30px 90px rgba(0,0,0,0.46);
+      position: relative;
+    }
+
+    .hero-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .hero-image::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(9,7,10,0.64), rgba(217,166,183,0.08), transparent);
+    }
+
+    .intro { text-align: center; }
+
+    .section-title {
+      font-size: clamp(3.6rem, 7vw, 7.5rem);
+      line-height: 0.95;
+      letter-spacing: -0.045em;
+      max-width: 980px;
+      margin: 0 auto 32px;
+      color: var(--rose-soft);
+      text-shadow: 0 0 30px rgba(240,204,216,0.18);
+    }
+
+    .section-text {
+      max-width: 780px;
+      margin: auto;
+      color: var(--muted);
+      line-height: 1.95;
+      font-size: 1.05rem;
+    }
+
+    .marquee {
+      border-top: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+      padding: 28px 0;
+      overflow: hidden;
+      background: rgba(255,247,239,0.025);
+    }
+
+    .marquee-track {
+      display: flex;
+      gap: 45px;
+      white-space: nowrap;
+      animation: scroll 28s linear infinite;
+      color: rgba(240,204,216,0.78);
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 2rem;
+      font-style: italic;
+    }
+
+    @keyframes scroll { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+
+    .grid-2 {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 34px;
+      margin-top: 70px;
+    }
+
+    .card {
+      border-radius: 34px;
+      padding: 40px;
+      border: 1px solid rgba(255,247,239,0.13);
+      background: linear-gradient(160deg, rgba(255,247,239,0.08), rgba(217,166,183,0.04));
+      box-shadow: 0 28px 90px rgba(0,0,0,0.25);
+      text-align: left;
+    }
+
+    .card h3 {
+      font-size: 2.7rem;
+      line-height: 0.95;
+      margin-bottom: 22px;
+      color: var(--rose-soft);
+    }
+
+    .card p, .card li {
+      color: var(--muted);
+      line-height: 1.85;
+      font-size: 1rem;
+    }
+
+    ul { list-style: none; display: grid; gap: 14px; }
+    li::before { content: "✦"; color: var(--gold); margin-right: 10px; }
+
+    .cta {
+      text-align: center;
+      padding-bottom: 150px;
+    }
+
+    .cta-box {
+      border-radius: 46px;
+      border: 1px solid rgba(255,247,239,0.14);
+      background: radial-gradient(circle at top, rgba(240,204,216,0.16), transparent 40%), rgba(255,247,239,0.045);
+      padding: 90px 30px;
+      box-shadow: 0 35px 100px rgba(0,0,0,0.38);
+    }
+
+    .cta h2 {
+      font-size: clamp(3.2rem, 6vw, 6.6rem);
+      line-height: 0.92;
+      letter-spacing: -0.055em;
+      max-width: 920px;
+      margin: 0 auto 28px;
+      color: var(--rose-soft);
+    }
+
+    .cta p {
+      max-width: 700px;
+      margin: 0 auto 28px;
+      color: var(--muted);
+      line-height: 1.9;
+    }
+
+    footer {
+      border-top: 1px solid rgba(255,247,239,0.1);
+      padding: 34px 0;
+      color: rgba(255,247,239,0.45);
+      font-size: 0.86rem;
+    }
+
+    .footer-inner { display: flex; justify-content: space-between; gap: 20px; flex-wrap: wrap; }
+
+
+
+    .sessions-accordion {
+      margin-top: 52px;
+      display: grid;
+      gap: 14px;
+      max-width: 920px;
+      margin-inline: auto;
+      text-align: left;
+    }
+
+    .session-item {
+      border-radius: 24px;
+      border: 1px solid rgba(255,247,239,0.13);
+      background: linear-gradient(160deg, rgba(255,247,239,0.08), rgba(217,166,183,0.04));
+      box-shadow: 0 18px 55px rgba(0,0,0,0.18);
+      overflow: hidden;
+    }
+
+    .session-item summary {
+      cursor: pointer;
+      list-style: none;
+      padding: 24px 28px;
+      display: grid;
+      grid-template-columns: 120px 1fr 34px;
+      align-items: center;
+      gap: 18px;
+      color: var(--cream);
+    }
+
+    .session-item summary::-webkit-details-marker { display: none; }
+
+    .session-item summary::after {
+      content: "+";
+      width: 34px;
+      height: 34px;
+      border-radius: 999px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border: 1px solid rgba(255,247,239,0.16);
+      color: var(--rose-soft);
+      font-size: 1.4rem;
+      line-height: 1;
+      transition: 0.25s ease;
+    }
+
+    .session-item[open] summary::after {
+      content: "−";
+      background: rgba(240,204,216,0.10);
+      transform: rotate(180deg);
+    }
+
+    .session-item summary span {
+      font-size: 0.74rem;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      color: rgba(240,204,216,0.76);
+      font-weight: 600;
+    }
+
+    .session-item summary strong {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 2rem;
+      line-height: 1.05;
+      color: var(--rose-soft);
+      font-weight: 500;
+    }
+
+    .session-item p {
+      padding: 0 28px 26px 166px;
+      color: var(--muted);
+      line-height: 1.85;
+      font-size: 1rem;
+    }
+
+
+    .offers-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 22px;
+      margin-top: 54px;
+      max-width: 1120px;
+      margin-inline: auto;
+      align-items: stretch;
+    }
+
+    .offer-card {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      min-height: 100%;
+      border-radius: 34px;
+      padding: 38px 28px 30px;
+      border: 1px solid rgba(255,247,239,0.13);
+      background: linear-gradient(160deg, rgba(255,247,239,0.075), rgba(217,166,183,0.045));
+      box-shadow: 0 28px 90px rgba(0,0,0,0.25);
+      text-align: left;
+    }
+
+    .offer-card.featured {
+      border-color: rgba(240,204,216,0.32);
+      background: radial-gradient(circle at top, rgba(240,204,216,0.18), transparent 42%), linear-gradient(160deg, rgba(255,247,239,0.09), rgba(217,166,183,0.06));
+    }
+
+    .offer-intro {
+      min-height: 238px;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .offer-price-wrap {
+      min-height: 76px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding-top: 0;
+      border-top: 1px solid rgba(255,247,239,0.10);
+    }
+
+    .offer-badge {
+      align-self: flex-start;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 8px 13px;
+      margin-bottom: 18px;
+      border-radius: 999px;
+      border: 1px solid rgba(217,184,120,0.22);
+      background: rgba(217,184,120,0.08);
+      color: rgba(255,247,239,0.74);
+      font-size: 0.68rem;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      font-weight: 600;
+    }
+
+    .offer-card h3 {
+      font-size: 2.35rem;
+      line-height: 0.95;
+      margin-bottom: 14px;
+      color: var(--rose-soft);
+    }
+
+    .offer-subtitle {
+      color: rgba(255,247,239,0.60);
+      line-height: 1.65;
+      font-size: 0.95rem;
+      margin-bottom: 24px;
+    }
+
+    .offer-price {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 3rem;
+      line-height: 0.95;
+      color: var(--rose-soft);
+      margin-bottom: 0;
+    }
+
+    .offer-payment {
+      display: none;
+    }
+
+    .offer-card ul {
+      gap: 12px;
+      margin-bottom: 28px;
+    }
+
+    .offer-card li {
+      color: var(--muted);
+      line-height: 1.65;
+      font-size: 0.94rem;
+    }
+
+    .telegram-note {
+      margin-top: auto;
+      padding: 16px 16px;
+      border-radius: 20px;
+      background: rgba(255,247,239,0.045);
+      border: 1px solid rgba(255,247,239,0.10);
+      color: rgba(255,247,239,0.58);
+      font-size: 0.86rem;
+      line-height: 1.65;
+    }
+
+    .codes-bridge {
+      max-width: 920px;
+      margin: 44px auto 0;
+      padding: 32px;
+      border-radius: 30px;
+      border: 1px solid rgba(255,247,239,0.12);
+      background: linear-gradient(135deg, rgba(217,184,120,0.08), rgba(240,204,216,0.055));
+      text-align: left;
+    }
+
+    .codes-bridge h3 {
+      font-size: 2.25rem;
+      color: var(--rose-soft);
+      margin-bottom: 12px;
+    }
+
+    .codes-bridge p {
+      color: var(--muted);
+      line-height: 1.8;
+      margin-bottom: 18px;
+    }
+
+    .pro-note {
+      max-width: 920px;
+      margin: 24px auto 0;
+      text-align: left;
+      color: rgba(255,247,239,0.62);
+      font-size: 0.92rem;
+      font-style: italic;
+      line-height: 1.75;
+      padding-left: 28px;
+    }
+    @media (max-width: 940px) {
+      .testimonials-grid { grid-template-columns: 1fr !important; }
+      .nav-links { display: none; }
+      .hero-grid, .grid-2, .offers-grid { grid-template-columns: 1fr; }
+      .hero-image { height: 520px; }
+      section { padding: 86px 0; }
+    }
+
+
+    @media (max-width: 720px) {
+      .session-item summary {
+        grid-template-columns: 1fr 34px;
+        gap: 10px 14px;
+      }
+
+      .session-item summary span { grid-column: 1 / -1; }
+      .session-item summary strong { font-size: 1.65rem; }
+      .session-item p { padding: 0 24px 24px; }
+    }
+
+    @media (max-width: 560px) {
+      h1 { font-size: 4.3rem; }
+      .section-title, .cta h2 { font-size: 3.3rem; }
+      .hero { padding-top: 120px; }
+      .card { padding: 30px; }
+    }
+  </style>
+</head>
+
+<body>
+
+  <nav class="nav">
+    <a href="index.html" class="logo">ALKÉMIA</a>
+    <div class="nav-links">
+      <a href="index.html">Accueil</a>
+      <a href="#pourquoi">Pourquoi</a>
+      <a href="#contenu">Contenu</a>
+      <a href="#candidature">Candidature</a>
+    </div>
+  </nav>
+
+  <section class="hero">
+    <div class="container hero-grid">
+      <div>
+        <div class="eyebrow">Accompagnement privé · Transformation identitaire</div>
+        <h1>ORIGINE</h1>
+        <p>
+          L’accompagnement profond pour libérer les loyautés invisibles, les mécanismes de protection, les blessures et les conditionnements qui dirigent encore votre réalité.
+        </p>
+        <p>
+          Maison après maison, votre thème natal devient une cartographie de libération pour que votre vie se réorganise depuis une base plus authentique, plus libre, plus originelle.
+        </p>
+        <a href="https://form.typeform.com/to/yODCmJrM" target="_blank" rel="noopener noreferrer" class="button">Je veux rejoindre ORIGINE</a>
+      </div>
+
+      <div class="hero-image">
+        <img src="origine-editorial.jpg?v=3" alt="ORIGINE — accompagnement premium ALKÉMIA">
+      </div>
+    </div>
+  </section>
+
+  <div class="marquee">
+    <div class="marquee-track">
+      <span>Libération intérieure</span><span>✦</span><span>Thème natal</span><span>✦</span><span>Codes originels</span><span>✦</span><span>Reprogrammation</span><span>✦</span>
+      <span>Libération intérieure</span><span>✦</span><span>Thème natal</span><span>✦</span><span>Codes originels</span><span>✦</span><span>Reprogrammation</span><span>✦</span>
+    </div>
+  </div>
+
+  <section id="pourquoi" class="intro">
+    <div class="container">
+      <div class="eyebrow">Le seuil</div>
+      <h2 class="section-title">Vous n’êtes pas en crise. Vous êtes arrivée au prochain niveau.</h2>
+      <p class="section-text">
+        Vous avez déjà travaillé sur vous, compris beaucoup de choses, traversé, ajusté, conscientisé. Et pourtant, vous sentez encore un écart entre la vision de votre vie idéale et celle que vous expérimentez, jour après jour, comme si vous n'étiez pas vraiment aux commandes.
+      </p>
+    </div>
+  </section>
+
+  <section id="contenu">
+    <div class="container intro">
+      <div class="eyebrow">ORIGINE</div>
+      <h2 class="section-title">Une immersion privée de reconstruction identitaire.</h2>
+      <p class="section-text">
+        ORIGINE™ est une immersion privée de 6 mois qui utilise votre thème natal comme carte de reconstruction identitaire. Chaque maison astrologique ouvre un territoire précis de votre être : identité, valeur, parole, racines, désir, corps, relations, pouvoir, vision, vocation, réseau, inconscient, et pendant 6 mois, nous traversons ces 12 espaces comme une architecture de libération.
+      </p>
+
+      <div class="grid-2">
+        <div class="card">
+          <h3>Avant ORIGINE™</h3>
+          <ul>
+            <li>Vous vous retenez encore au moment de prendre pleinement votre place.</li>
+            <li>Vous ajustez vos choix pour ne pas déranger.</li>
+            <li>Vous voulez recevoir plus, mais quelque chose se ferme quand cela devient réel.</li>
+            <li>Vous contrôlez encore ce qui peut être montré.</li>
+            <li>Vous sentez qu’une ancienne identité organise encore votre réalité.</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <h3>Après ORIGINE™</h3>
+          <ul>
+            <li>Vous choisissez avec moins de peur.</li>
+            <li>Vous vous montrez avec moins de retenue.</li>
+            <li>Vous ne diminuez plus votre présence pour rester acceptable.</li>
+            <li>Les anciennes loyautés perdent leur autorité.</li>
+            <li>Votre vie commence à se réorganiser depuis une base plus authentique, plus libre et plus originelle.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="intro">
+    <div class="container">
+      <div class="eyebrow">Les 12 séances privées</div>
+      <h2 class="section-title">Une changement de vie à 360°.</h2>
+      <p class="section-text">
+        Chaque séance ouvre un espace précis de votre thème natal pour libérer les croyances, les mécanismes de protection, les loyautés invisibles et les schémas inconscients qui dirigent encore votre réalité.
+      </p>
+
+      <div class="sessions-accordion">
+
+        <details class="session-item" open>
+          <summary><span>Séance 1</span><strong>Identité, place & autorisation d’être vous</strong></summary>
+          <p>Nous travaillons les endroits où vous vous effacez, où vous attendez encore une permission extérieure, où votre corps se contracte au moment d’être vue, choisie, nommée ou pleinement assumée.</p>
+        </details>
+
+        <details class="session-item">
+          <summary><span>Séance 2</span><strong>Valeur personnelle, argent & sécurité</strong></summary>
+          <p>Nous allons chercher ce qui bloque la réception : peur de manquer, difficulté à facturer, culpabilité à demander plus, besoin de prouver votre valeur ou sensation de devoir mériter chaque ressource.</p>
+        </details>
+
+        <details class="session-item">
+          <summary><span>Séance 3</span><strong>Mental, parole & croyances automatiques</strong></summary>
+          <p>Nous libérons les phrases intérieures qui tournent en boucle, les croyances héritées, la peur de dire clairement ce que vous pensez, et les récits qui vous font douter au moment de choisir.</p>
+        </details>
+
+        <details class="session-item">
+          <summary><span>Séance 4</span><strong>Sécurité intérieure, famille & racines</strong></summary>
+          <p>Nous revenons aux fondations : ce que votre histoire familiale a imprimé en vous, les mémoires de clan, les loyautés invisibles, et les endroits où vous cherchez encore la sécurité dans l’ancien.</p>
+        </details>
+
+        <details class="session-item">
+          <summary><span>Séance 5</span><strong>Désir, créativité & puissance féminine</strong></summary>
+          <p>Nous travaillons les blocages autour du plaisir, de la créativité, de l’élan, de la visibilité joyeuse et du droit de vouloir plus sans vous excuser, sans vous réduire, sans attendre d’être validée.</p>
+        </details>
+
+        <details class="session-item">
+          <summary><span>Séance 6</span><strong>Corps, quotidien & perfectionnisme</strong></summary>
+          <p>Nous libérons les automatismes de suradaptation, le besoin de tout bien faire, la culpabilité au repos, le rapport au corps, à la fatigue, à l’organisation et à la pression d’être toujours utile.</p>
+        </details>
+
+        <details class="session-item">
+          <summary><span>Séance 7</span><strong>Relations, limites & dynamiques affectives</strong></summary>
+          <p>Nous observons vos schémas relationnels concrets : peur du rejet, difficulté à poser une limite, tendance à sauver, à attendre, à trop comprendre l’autre ou à négocier vos standards.</p>
+        </details>
+
+        <details class="session-item">
+          <summary><span>Séance 8</span><strong>Peur, survie & reprise de pouvoir</strong></summary>
+          <p>Nous descendons dans les zones plus enfouies : peur de perdre le contrôle, attachements, honte, secrets, blessures anciennes, rapports de pouvoir et réflexes de protection qui vous gardent en mode survie.</p>
+        </details>
+
+        <details class="session-item">
+          <summary><span>Séance 9</span><strong>Vision, foi & expansion</strong></summary>
+          <p>Nous travaillons ce qui limite votre champ des possibles : peur de viser plus haut, loyauté à une petite vie, difficulté à faire confiance à votre intuition, à votre trajectoire et à une vision plus vaste.</p>
+        </details>
+
+        <details class="session-item">
+          <summary><span>Séance 10</span><strong>Vocation, leadership & réussite</strong></summary>
+          <p>Nous libérons ce qui pèse sur votre réussite : peur d’être jugée, rapport à l’autorité, pression de devoir porter seule, blocages de légitimité et difficulté à incarner une posture claire.</p>
+        </details>
+
+        <details class="session-item">
+          <summary><span>Séance 11</span><strong>Collectif, contribution & impact</strong></summary>
+          <p>Nous travaillons votre place dans les groupes, votre réseau, votre capacité à être soutenue, reconnue, recommandée, et les endroits où vous minimisez encore votre contribution par peur de déranger.</p>
+        </details>
+
+        <details class="session-item">
+          <summary><span>Séance 12</span><strong>Inconscient, auto-sabotages & intégration</strong></summary>
+          <p>Nous allons dans les angles morts : schémas invisibles, peurs spirituelles, auto-sabotages silencieux, fatigue de fond, et tout ce qui demande à être pacifié pour que la nouvelle identité puisse s’ancrer.</p>
+        </details>
+
+      </div>
+    </div>
+  </section>
+
+  <section class="intro">
+    <div class="container">
+      <div class="eyebrow">ORIGINE™ VIP</div>
+      <h2 class="section-title" style="font-size:clamp(2.8rem, 5vw, 5.6rem); margin-bottom:18px;">La valeur réelle de tout ce qui est inclus dans la version VIP.</h2>
+
+      <div style="margin-top:42px; border:1px solid rgba(255,247,239,0.12); border-radius:30px; overflow:hidden; background:linear-gradient(180deg, rgba(255,247,239,0.04), rgba(217,184,120,0.03)); box-shadow:0 22px 70px rgba(0,0,0,0.22);">
+
+        <div style="display:grid; grid-template-columns: 1fr auto; gap:18px; padding:24px 28px; border-bottom:1px solid rgba(255,247,239,0.08); align-items:center; text-align:left;">
+          <div>
+            <div style="font-weight:500; color:var(--cream); margin-bottom:6px; font-size:1rem;">Audit astrologique stratégique complet transmis en PDF</div>
+            <div style="color:rgba(255,247,239,0.55); font-size:0.88rem; line-height:1.55; max-width:680px;">Une analyse profonde de votre thème natal pour identifier les blocages, les peurs, les croyances limitantes et les schémas répétitifs à l'œuvre dans les grandes zones de votre vie.</div>
+          </div>
+          <div style="font-family:'Cormorant Garamond', serif; font-size:1.85rem; color:var(--rose-soft); font-weight:700;">790 €</div>
+        </div>
+
+        <div style="display:grid; grid-template-columns: 1fr auto; gap:18px; padding:24px 28px; border-bottom:1px solid rgba(255,247,239,0.08); align-items:center; text-align:left;">
+          <div>
+            <div style="font-weight:500; color:var(--cream); margin-bottom:6px; font-size:1rem;">12 séances individuelles de libération et de reprogrammation</div>
+            <div style="color:rgba(255,247,239,0.55); font-size:0.88rem; line-height:1.55; max-width:680px;">Des séances privées en visio pour libérer les programmes limitants logés dans l'inconscient, maison après maison, et réorganiser votre identité depuis une base plus libre et plus originelle.</div>
+          </div>
+          <div style="font-family:'Cormorant Garamond', serif; font-size:1.85rem; color:var(--rose-soft); font-weight:700;">4 450 €</div>
+        </div>
+
+        <div style="display:grid; grid-template-columns: 1fr auto; gap:18px; padding:24px 28px; border-bottom:1px solid rgba(255,247,239,0.08); align-items:center; text-align:left;">
+          <div>
+            <div style="font-weight:500; color:var(--cream); margin-bottom:6px; font-size:1rem;">Canal Telegram privé</div>
+            <div style="color:rgba(255,247,239,0.55); font-size:0.88rem; line-height:1.55; max-width:680px;">Un espace de soutien privé pour accompagner votre transformation pendant toute la durée de l'accompagnement, du lundi au vendredi.</div>
+          </div>
+          <div style="font-family:'Cormorant Garamond', serif; font-size:1.85rem; color:var(--rose-soft); font-weight:700;">1 250 €</div>
+        </div>
+
+        <div style="display:grid; grid-template-columns: 1fr auto; gap:18px; padding:24px 28px; border-bottom:1px solid rgba(255,247,239,0.08); align-items:center; text-align:left;">
+          <div>
+            <div style="font-weight:500; color:var(--cream); margin-bottom:6px; font-size:1rem;">Carnet d’intégration ORIGINE™</div>
+            <div style="color:rgba(255,247,239,0.55); font-size:0.88rem; line-height:1.55; max-width:680px;">Un support d’intégration avec exercices d’introspection, journaling, prises de conscience et espaces de suivi pour accompagner chaque phase de votre transformation.</div>
+          </div>
+          <div style="font-family:'Cormorant Garamond', serif; font-size:1.85rem; color:var(--rose-soft); font-weight:700;">550 €</div>
+        </div>
+
+        <div style="display:grid; grid-template-columns: 1fr auto; gap:18px; padding:24px 28px; border-bottom:1px solid rgba(255,247,239,0.08); align-items:center; text-align:left;">
+          <div>
+            <div style="font-weight:500; color:var(--cream); margin-bottom:6px; font-size:1rem;">Séances EFT de soutien au système nerveux</div>
+            <div style="color:rgba(255,247,239,0.55); font-size:0.88rem; line-height:1.55; max-width:680px;">Des pratiques EFT pour accompagner votre système nerveux dans les transitions identitaires et stabiliser intérieurement les nouvelles permissions.</div>
+          </div>
+          <div style="font-family:'Cormorant Garamond', serif; font-size:1.85rem; color:var(--rose-soft); font-weight:700;">550 €</div>
+        </div>
+
+        <div style="display:grid; grid-template-columns: 1fr auto; gap:18px; padding:24px 28px; border-bottom:1px solid rgba(255,247,239,0.08); align-items:center; text-align:left;">
+          <div>
+            <div style="font-weight:500; color:var(--cream); margin-bottom:6px; font-size:1rem;">Cartographie finale de votre nouvelle identité</div>
+            <div style="color:rgba(255,247,239,0.55); font-size:0.88rem; line-height:1.55; max-width:680px;">Cartographie finale de votre nouvelle identité avec les potentiels réactivés et les nouveaux espaces d’expansion activés maison par maison (PDF ultra détaillé).</div>
+          </div>
+          <div style="font-family:'Cormorant Garamond', serif; font-size:1.85rem; color:var(--rose-soft); font-weight:700;">790 €</div>
+        </div>
+
+        <div style="display:grid; grid-template-columns: 1fr auto; gap:18px; padding:26px 28px; align-items:end; background:linear-gradient(90deg, rgba(217,184,120,0.10), rgba(240,204,216,0.06)); text-align:left;">
+          <div>
+            <div style="text-transform:uppercase; letter-spacing:0.2em; font-size:0.68rem; color:rgba(240,204,216,0.72); margin-bottom:12px;">Valeur totale estimée</div>
+            <div style="font-family:'Cormorant Garamond', serif; font-size:3.2rem; color:var(--rose-soft); line-height:0.9;">8 380 €</div>
+          </div>
+          <div style="max-width:260px; color:rgba(255,247,239,0.55); line-height:1.7; font-size:0.9rem; text-align:right;">
+            La version VIP rassemble le niveau le plus complet de profondeur, de personnalisation, de présence et d’intégration dans l’univers ORIGINE™.
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="intro">
+    <div class="container">
+      <div class="eyebrow">Les formules ORIGINE™</div>
+      <h2 class="section-title">Choisissez la profondeur de transformation qui vous appelle.</h2>
+      <p class="section-text">
+        Trois portes d’entrée, trois niveaux de présence, un même fil conducteur : traverser les 12 maisons de votre thème natal pour libérer ce qui vous retient encore et réactiver ce qui attendait de reprendre sa place.
+      </p>
+
+      <div class="offers-grid">
+
+        <div class="offer-card">
+          <div class="offer-intro">
+            <h3>ORIGINE™ Basic</h3>
+            <p class="offer-subtitle">Pour entrer dans la méthode ORIGINE™ à votre rythme, avec un parcours personnalisé que vous recevez chez vous, comme une série de soins conçus à partir de votre propre thème natal.</p>
+          </div>
+          <div class="offer-price-wrap">
+            <div class="offer-price">2 222 € TTC</div>
+          </div>
+          <ul>
+            <li>12 soins enregistrés et personnalisés à partir de votre thème natal.</li>
+            <li>Une traversée maison par maison pour libérer les blocages majeurs et réactiver vos potentiels.</li>
+            <li>Écoute libre, autant de fois que nécessaire, selon votre rythme d’intégration.</li>
+            
+          </ul>
+          <div class="telegram-note">Présence incluse : échanges sur Telegram le lundi uniquement. Cette formule ne comprend pas de séance en direct.</div>
+        </div>
+
+        <div class="offer-card">
+          <div class="offer-intro">
+            <h3>ORIGINE™ Essentiel</h3>
+            <p class="offer-subtitle">Pour être accompagnée en direct dans les 12 espaces de votre thème natal, avec un travail en one to one qui permet d’ajuster chaque séance à ce qui se présente réellement dans votre vie.</p>
+          </div>
+          <div class="offer-price-wrap">
+            <div class="offer-price">3 600 € TTC</div>
+          </div>
+          <ul>
+            <li>12 séances individuelles en one to one pour libérer et reprogrammer maison par maison.</li>
+            <li>Un accompagnement direct, précis et personnalisé à chaque étape du processus.</li>
+            <li>Suivi entre les séances via un espace privé pour soutenir les prises de conscience, les résistances et les passages d’intégration.</li>
+          </ul>
+          <div class="telegram-note">Présence incluse : suivi sur Telegram du lundi au mercredi. Cette formule ne comprend pas les bonus premium.</div>
+        </div>
+
+        <div class="offer-card featured">
+          <div class="offer-intro">
+            <h3>ORIGINE™ VIP</h3>
+            <p class="offer-subtitle">Pour vivre l’immersion la plus complète : les séances privées, l’analyse stratégique, les supports d’intégration et la cartographie finale, afin que la transformation ne reste pas suspendue dans l’invisible mais s’ancre dans votre réalité.</p>
+          </div>
+          <div class="offer-price-wrap">
+            <div class="offer-price">5 555 € TTC</div>
+          </div>
+          <ul>
+            <li>Audit astrologique stratégique complet transmis en PDF.</li>
+            <li>12 séances individuelles de libération et de reprogrammation en one to one.</li>
+            <li>Suivi prioritaire entre les séances pendant 6 mois.</li>
+            <li>Carnet d’intégration ORIGINE™ avec exercices d’introspection et journaling.</li>
+            <li>Séances EFT pour accompagner le système nerveux dans la transition.</li>
+            <li>Cartographie finale de votre nouvelle identité, maison par maison.</li>
+          </ul>
+          <div class="telegram-note">Présence incluse : suivi sur Telegram du lundi au vendredi. C’est la formule la plus complète, avec les bonus d’intégration.</div>
+        </div>
+
+      </div>
+
+      <p class="pro-note">Ceci constitue un frais professionnel pour celles ayant une structure business, et la TVA peut être récupérée selon votre situation comptable.</p>
+
+      <div class="codes-bridge">
+        <h3>Vous sentez qu’actuellement un soin ciblé est plus juste pour vous ?</h3>
+        <p>
+          Les Codes d’ALKÉMIA sont des soins quantiques par signe astrologique, pensés pour libérer et réactiver une énergie précise de votre thème. Une approche plus ciblée, plus immédiate, pour travailler une fréquence spécifique sans entrer dans l’immersion complète ORIGINE™.
+        </p>
+        <a href="https://lescodesdalkemia.netlify.app/" target="_blank" rel="noopener noreferrer" class="button">Découvrir les Codes d’ALKÉMIA</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="intro">
+    <div class="container">
+      <div class="eyebrow">Témoignages</div>
+      <h2 class="section-title">Quand la réalité commence enfin à changer.</h2>
+      <p class="section-text">
+        Derrière chaque transformation visible, il y a une ancienne identité qui a cessé de diriger la réalité.
+      </p>
+
+      <div style="display:grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap:24px; margin-top:60px; max-width:1080px; margin-inline:auto; align-items:start;">
+
+        <div class="card" style="padding:34px; text-align:left;">
+          <p style="font-size:1.05rem; line-height:1.95; color:rgba(255,247,239,0.84);">
+            « Je me rends compte de tous les changements sur ces 12 derniers mois. En relisant tout le chemin parcouru, j’ai réalisé à quel point tout était différent. Je n’aurais sans doute pas autant avancé sans cet accompagnement. Quelque chose s’est profondément réorganisé à l’intérieur de moi. »
+          </p>
+          <div style="margin-top:24px; color:var(--rose-soft); font-weight:600;">Élise — Annecy</div>
+          <div style="margin-top:4px; font-size:0.9rem; opacity:0.5;">Novembre 2025</div>
+        </div>
+
+        <div class="card" style="padding:34px; text-align:left;">
+          <p style="font-size:1.05rem; line-height:1.95; color:rgba(255,247,239,0.84);">
+            « Avant, je culpabilisais de dire ma vérité. Aujourd’hui, je me positionne. Je me sens plus claire, plus stable intérieurement et une vraie paix commence à s’installer. J’ai l’impression d’être enfin aux commandes de ma vie. »
+          </p>
+          <div style="margin-top:24px; color:var(--rose-soft); font-weight:600;">Camille — Bordeaux</div>
+          <div style="margin-top:4px; font-size:0.9rem; opacity:0.5;">Janvier 2026</div>
+        </div>
+
+        <div class="card" style="padding:34px; text-align:left;">
+          <p style="font-size:1.05rem; line-height:1.95; color:rgba(255,247,239,0.84);">
+            « Grâce aux séances de ThetaHealing, j’ai pris conscience de croyances limitantes extrêmement profondes, notamment autour de l’argent, de l’estime de moi et de ma blessure d’abandon. La puissance du travail sur le subconscient m’a bluffée. »
+          </p>
+          <div style="margin-top:24px; color:var(--rose-soft); font-weight:600;">Sophie — Lyon</div>
+          <div style="margin-top:4px; font-size:0.9rem; opacity:0.5;">Octobre 2025</div>
+        </div>
+
+        <div class="card" style="padding:34px; text-align:left;">
+          <p style="font-size:1.05rem; line-height:1.95; color:rgba(255,247,239,0.84);">
+            « Tu m’as permis d’oser devenir celle que je suis réellement. J’ai l’impression de revenir à moi, sans masque, sans adaptation permanente. C’est bien plus qu’un accompagnement : c’est une reconnexion. »
+          </p>
+          <div style="margin-top:24px; color:var(--rose-soft); font-weight:600;">Claire — Toulouse</div>
+          <div style="margin-top:4px; font-size:0.9rem; opacity:0.5;">Février 2026</div>
+        </div>
+
+        <div class="card" style="padding:34px; text-align:left; grid-column:1 / -1; max-width:720px; margin-inline:auto;">
+          <p style="font-size:1.05rem; line-height:1.95; color:rgba(255,247,239,0.84);">
+            « Les séances de libération en lien avec mon thème natal m'ont permis de libérer des blessures que je portais depuis des années. Mes proches ont commencé à voir les changements avant même que je les réalise moi-même. Je me sens plus en paix, plus alignée et beaucoup plus sereine. »
+          </p>
+          <div style="margin-top:24px; color:var(--rose-soft); font-weight:600;">Marion — Strasbourg</div>
+          <div style="margin-top:4px; font-size:0.9rem; opacity:0.5;">Décembre 2025</div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <section id="candidature" class="cta">
+    <div class="container">
+      <div class="cta-box">
+        <div class="eyebrow">Candidature</div>
+        <h2>La transformation commence par la reconnexion à votre Encodage Originel.</h2>
+        <p>
+          ORIGINE™ n’est pas une plongée dans le passé. C’est une reconstruction douce et profonde de l’identité, par la libération des croyances inconscientes qui créent votre réalité actuelle.
+        </p>
+        <a href="https://form.typeform.com/to/yODCmJrM" target="_blank" rel="noopener noreferrer" class="button">Je veux rejoindre ORIGINE</a>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container footer-inner">
+      <span>© ALKÉMIA — Tous droits réservés.</span>
+      <span><a href="index.html" style="color: rgba(255,247,239,0.55); text-decoration: none;">Retour à l’accueil</a></span>
+    </div>
+  </footer>
+
+</body>
+</html>
