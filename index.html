@@ -468,6 +468,32 @@
       top:auto!important;
       align-self:center!important;
     }
+
+/* Correctif affichage mobile : restaurer la grille sur une seule colonne */
+@media (max-width: 920px) {
+  .container { width: calc(100% - 28px); }
+  .nav { padding: 16px 18px; }
+  .nav-links { display: none; }
+  .hero { padding: 48px 0 56px; }
+  .hero-grid, .offers-grid, .split { grid-template-columns: minmax(0, 1fr); gap: 32px; }
+  .hero-grid > div, .hero-copy, .hero-block { min-width: 0; max-width: 100%; }
+  .hero-title-wide { font-size: clamp(2.65rem, 10vw, 4.4rem); line-height: 1; overflow-wrap: normal; }
+  .hero-copy p { font-size: 1rem; line-height: 1.65; }
+  .hero-desires p { margin-bottom: 8px; }
+  .image-stack-single { width: 100%; }
+  .image-stack-single .image-main { width: min(100%, 460px); }
+  .about-refined-v24 .about-layout { grid-template-columns: minmax(0,1fr); gap: 28px; }
+  .about-refined-v24 .portrait-frame { max-width: 440px; margin: 0 auto; }
+  .text-wrap, .text-wrap h2 { text-align: left; }
+  .offer-card { min-width: 0; }
+}
+@media (max-width: 560px) {
+  .container { width: calc(100% - 28px); }
+  .hero-title-wide { font-size: clamp(2.55rem, 10.3vw, 3.4rem); }
+  .offers-grid { grid-template-columns: minmax(0,1fr); }
+  .offer-card { padding: 28px 22px; }
+  .about-method-card { padding: 24px 22px; }
+}
 </style>
 </head>
 <body>
