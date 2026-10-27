@@ -4,11 +4,10 @@
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>ALKÉMIA — Astrologie &amp; Reprogrammation Neuro-Identitaire</title>
-<meta content="ALKÉMIA — Astrologie, libération et reprogrammation neuro-identitaire pour les femmes qui veulent arrêter de comprendre leurs blocages et commencer à les shifter." name="description"/>
+<title>ALKÉMIA</title>
 <link href="https://fonts.googleapis.com" rel="preconnect"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&amp;family=Inter:wght@300;400;500;600;700;800;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&amp;family=Inter:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
 <style>
     *{box-sizing:border-box;margin:0;padding:0}
     :root{--black:#09070a;--deep:#130c12;--plum:#21121d;--rose:#d9a6b7;--rose-soft:#f0ccd8;--gold:#d9b878;--cream:#fff7ef;--muted:rgba(255,247,239,.74);--line:rgba(255,247,239,.14)}
@@ -119,14 +118,25 @@
 
     .journey-grid-soft{display:grid;grid-template-columns:1fr 1fr;gap:26px;margin:30px auto;max-width:920px}
     .journey-grid-soft>div{padding:28px 30px;border:1px solid rgba(240,204,216,.13);border-radius:28px;background:rgba(255,247,239,.035)}
-    .journey-grid-soft h3{font-family:Inter,system-ui,sans-serif;font-size:.75rem;text-transform:uppercase;letter-spacing:.16em;color:var(--rose);margin-bottom:14px}
-    .journey-grid-soft p{font-size:1rem!important;line-height:1.75!important;margin-bottom:0!important}
-    .journey-punch{font-family:'Cormorant Garamond',serif;color:var(--rose-soft);font-size:clamp(2.2rem,4vw,4rem);line-height:1;letter-spacing:-.04em;text-align:center;margin:48px auto;max-width:860px}
-    .journey-punch span{color:var(--cream);font-style:italic}
-    .journey-final{margin:42px auto 0;max-width:870px;padding:34px 38px;border-radius:32px;background:rgba(255,247,239,.045);border:1px solid rgba(240,204,216,.16)}
-    .journey-final p{font-size:1.05rem!important;line-height:1.85!important;margin-bottom:0!important}
-    @media(max-width:780px){.journey-grid-soft{grid-template-columns:1fr}}
+    .journey-grid-soft p{font-size:1.02rem;line-height:1.78;margin-bottom:14px;text-align:left}
+    .journey-grid-soft p:last-child{margin-bottom:0}
+    .parcours-rose{max-width:820px;margin:36px auto}
+    .parcours-rose p{text-align:center!important}
+    .parcours-end{max-width:820px;margin:0 auto 28px}
+    .parcours-end p{text-align:center!important}
+    @media (max-width:760px){.journey-grid-soft{grid-template-columns:1fr}.hero-title-tight{line-height:.86!important}}
 
+    .parcours-intro{max-width:780px;margin:0 auto 34px;padding:0 0 24px;border-bottom:1px solid rgba(240,204,216,.18)}
+    .parcours-intro p{text-align:center;font-size:1.12rem;line-height:1.75;color:var(--cream)}
+    .parcours-intro strong{color:var(--rose-soft)}
+    .journey-body p{text-align:left;font-size:1.05rem;line-height:1.9;margin-bottom:22px}
+    .journey-punch{font-family:'Cormorant Garamond',serif;color:var(--rose-soft);font-size:clamp(1.85rem,3vw,2.8rem);line-height:1.05;letter-spacing:-.025em;text-align:center;margin:38px auto 26px;max-width:850px}
+    .journey-final{margin-top:34px;border-left:3px solid var(--rose-soft);padding:8px 0 8px 24px}
+    .journey-final p{margin-bottom:0;color:var(--cream)}
+    @media(max-width:920px){.journey-intro{grid-template-columns:1fr}.journey-layout{text-align:left}.journey-card{padding:26px 24px}.journey-final{padding-left:18px}}
+    @media(max-width:920px){.container{width:min(100% - 28px,1160px)}.nav{padding:16px 18px}.nav-links{display:none}.hero{padding:62px 0 52px}.hero-grid,.split,.offers-grid{grid-template-columns:1fr;gap:38px}h1{font-size:clamp(3rem,14vw,5rem)}h2{font-size:clamp(2.3rem,12vw,3.8rem)}.image-stack{min-height:460px}.image-main{width:88%;height:390px}.image-small{width:52%;height:210px}.floating-note{right:0;bottom:20px}.portrait-frame{position:relative;top:auto}.about-text h2{text-align:left}.text-wrap{text-align:left}.text-wrap h2{text-align:left}.editorial-card{padding:28px 24px}.rose-card{padding:28px 24px}.truth-line{text-align:left}}
+    @media(max-width:560px){.container{width:calc(100% - 24px)}p{font-size:.98rem;line-height:1.82}.hero-copy p,.text-wrap p{font-size:1rem}.image-stack{min-height:390px}.image-main{height:335px;border-radius:32px}.image-small{display:none}.floating-note{width:84%;font-size:1.25rem}.offer-card{padding:28px 22px;border-radius:28px}.rose-card.statement{padding:30px 24px}.rose-card.statement p{font-size:clamp(1.75rem,10vw,2.55rem)}}
+  
     .offers-intro{max-width:820px;margin:0 auto;text-align:center}
     .offers-intro p{font-size:1.06rem}
     .offer-card.codes-card{display:flex;flex-direction:column;gap:18px}
@@ -143,7 +153,12 @@
     .origine-card .meta{border-color:rgba(9,7,10,.18);background:rgba(9,7,10,.07);color:rgba(9,7,10,.84)}
     .origine-card .button{background:var(--black);color:var(--cream);border-color:var(--black)}
     .codes-card .button{align-self:flex-start}
-    @media(max-width:760px){.formula-line{display:block}.formula-line span{display:block;text-align:left;margin-top:4px}.code-pill{border-radius:18px}}
+    @media(max-width:760px){
+      .formula-line{display:block}
+      .formula-line span{display:block;text-align:left;margin-top:4px}
+      .code-pill{border-radius:18px}
+    }
+
 
     .offer-card{min-height:620px}
     .codes-promise{font-family:'Cormorant Garamond',serif;font-size:clamp(1.8rem,3vw,2.75rem);line-height:.98;color:var(--cream);letter-spacing:-.03em;margin:6px 0 4px}
@@ -157,11 +172,14 @@
     .origine-infos{margin-top:18px;color:rgba(9,7,10,.86);font-size:.98rem;line-height:1.7}
     .origine-infos strong{color:var(--black);font-weight:900}
 
+
     .origine-card p strong{color:var(--black);font-weight:900}
     .codes-card p strong{color:var(--rose-soft);font-weight:900}
 
+
     .offer-card{display:flex;flex-direction:column}
     .offer-card .button{margin-top:auto;align-self:flex-start}
+
 
     .offers-grid{align-items:stretch}
     .offer-card{height:100%}
@@ -175,6 +193,7 @@
     }
     .codes-card,.origine-card{min-height:640px}
 
+
     .offer-card h3{
       font-size:clamp(1.9rem,3.2vw,3rem);
       letter-spacing:.055em;
@@ -184,14 +203,17 @@
     .codes-card p,.origine-card p{font-size:.98rem}
     .codes-card .button,.origine-card .button{margin-top:auto}
 
+
     .codes-card,.origine-card{min-height:590px}
     .codes-examples{display:grid;gap:10px;margin:4px 0 10px}
     .codes-examples p{font-size:.94rem;line-height:1.45;margin:0;padding:12px 14px;border:1px solid rgba(240,204,216,.16);background:rgba(255,247,239,.045);border-radius:18px}
     .codes-examples span{display:block;margin-top:5px;color:var(--rose-soft);font-weight:900;text-transform:uppercase;letter-spacing:.06em}
     .origine-card .offer-subtitle{color:rgba(9,7,10,.72)}
 
+
     .codes-card,.origine-card{min-height:560px}
     .codes-card p{font-size:.99rem;line-height:1.72}
+
 
     .offer-card .button{
       align-self:flex-end;
@@ -199,8 +221,10 @@
       margin-right:0;
     }
 
+
     .hero-copy p{margin-bottom:13px}
     .hero-copy .truth-line{margin:18px 0 18px}
+
 
     .hero-block{margin:0 0 26px}
     .hero-desires p{margin-bottom:9px}
@@ -225,6 +249,7 @@
     .hero-method p:last-child{margin-bottom:0}
     .hero-method strong{color:var(--rose-soft);font-weight:900}
 
+
     .hero-title-wide{
       font-family:'Cormorant Garamond',serif;
       font-size:clamp(3rem,6vw,6.6rem);
@@ -237,6 +262,7 @@
     .hero-title-wide span{color:var(--rose-soft);font-style:italic}
     .hero-desires{margin-bottom:22px}
     .hero-desires p{margin-bottom:7px}
+
 
     .image-stack-single{
       min-height:auto;
@@ -258,6 +284,7 @@
       object-fit:cover;
     }
 
+
     .vision-clean p{
       font-size:1.08rem;
       line-height:1.8;
@@ -273,6 +300,22 @@
       margin-top:30px;
       max-width:880px;
     }
+
+
+    .about-clean{
+      max-width:920px;
+      margin:42px auto 0;
+    }
+    .about-clean p{
+      font-size:1.06rem;
+      line-height:1.8;
+      margin-bottom:20px;
+    }
+    .about-clean p strong{
+      color:var(--rose-soft);
+      font-weight:900;
+    }
+
 
     .about-refined .about-layout{
       display:grid;
@@ -324,6 +367,7 @@
         margin-top:26px;
       }
     }
+
 
     .about-refined-v24 .about-layout{
       display:grid;
@@ -378,6 +422,7 @@
       }
     }
 
+
     .about-method-card{
       max-width:760px;
       margin:34px auto 0;
@@ -398,6 +443,7 @@
       color:var(--black)!important;
       font-weight:900;
     }
+
 
     .parcours-v26{
       max-width:900px;
@@ -420,6 +466,7 @@
       color:var(--rose-soft);
       font-weight:900;
     }
+
 
     .parcours-v27{
       max-width:920px;
@@ -460,50 +507,49 @@
       margin-top:28px;
     }
 
-    .about-refined-v24 .about-layout{
-      align-items:center!important;
-    }
-    .about-refined-v24 .portrait-frame{
-      position:relative!important;
-      top:auto!important;
-      align-self:center!important;
-    }
 
-/* Correctif affichage mobile : restaurer la grille sur une seule colonne */
-@media (max-width: 920px) {
-  .container { width: calc(100% - 28px); }
-  .nav { padding: 16px 18px; }
-  .nav-links { display: none; }
-  .hero { padding: 48px 0 56px; }
-  .hero-grid, .offers-grid, .split { grid-template-columns: minmax(0, 1fr); gap: 32px; }
-  .hero-grid > div, .hero-copy, .hero-block { min-width: 0; max-width: 100%; }
-  .hero-title-wide { font-size: clamp(2.65rem, 10vw, 4.4rem); line-height: 1; overflow-wrap: normal; }
-  .hero-copy p { font-size: 1rem; line-height: 1.65; }
-  .hero-desires p { margin-bottom: 8px; }
-  .image-stack-single { width: 100%; }
-  .image-stack-single .image-main { width: min(100%, 460px); }
-  .about-refined-v24 .about-layout { grid-template-columns: minmax(0,1fr); gap: 28px; }
-  .about-refined-v24 .portrait-frame { max-width: 440px; margin: 0 auto; }
-  .text-wrap, .text-wrap h2 { text-align: left; }
-  .offer-card { min-width: 0; }
-}
-@media (max-width: 560px) {
-  .container { width: calc(100% - 28px); }
-  .hero-title-wide { font-size: clamp(2.55rem, 10.3vw, 3.4rem); }
-  .offers-grid { grid-template-columns: minmax(0,1fr); }
-  .offer-card { padding: 28px 22px; }
-  .about-method-card { padding: 24px 22px; }
-}
+/* Séance individuelle ORIGINE — version compacte */
+.origine-discovery{padding:20px 20px 62px!important}
+.origine-discovery-inner{max-width:1030px!important;gap:30px!important;padding:30px 38px!important;grid-template-columns:1.25fr .75fr!important;border-radius:24px!important}
+.origine-discovery h2{font-size:clamp(2.05rem,3.5vw,3.25rem)!important;margin-bottom:13px!important;line-height:1.05!important}
+.origine-discovery p{font-size:.93rem!important;line-height:1.58!important;margin-bottom:10px!important}
+.origine-discovery .mini-label{margin-bottom:10px!important}
+.origine-discovery-aside{padding:23px!important;gap:11px!important;border-radius:20px!important}
+.origine-discovery .price{font-size:clamp(3.45rem,5vw,4.6rem)!important}
+.origine-discovery .details{font-size:.87rem!important;line-height:1.5!important;margin:0!important}
+.origine-discovery .book-button{padding:12px 14px!important}
+@media(max-width:800px){.origine-discovery-inner{grid-template-columns:1fr!important;padding:24px!important;gap:19px!important}}
+/* Séance individuelle ORIGINE */
+.origine-discovery{padding:34px 20px 92px;background:#100c12;color:#fff7ef}
+.origine-discovery-inner{max-width:1110px;margin:0 auto;border:1px solid rgba(231,184,201,.46);border-radius:30px;display:grid;grid-template-columns:1.15fr .85fr;gap:54px;align-items:center;padding:clamp(30px,5vw,62px);background:radial-gradient(ellipse at 100% 5%,rgba(222,158,181,.13),transparent 65%),#21151e;box-shadow:0 18px 70px rgba(0,0,0,.18)}
+.origine-discovery .mini-label{font-size:.75rem;font-weight:850;letter-spacing:.17em;color:#f0c1d0;text-transform:uppercase;margin-bottom:15px}
+.origine-discovery h2{font-family:Georgia,'Cormorant Garamond',serif;font-size:clamp(2.7rem,4.8vw,4.7rem);line-height:1.02;letter-spacing:-.03em;color:#efcad9;margin:0 0 24px}
+.origine-discovery p{font-size:1rem;line-height:1.73;color:#eee3e8;margin:0 0 16px}
+.origine-discovery .emphasis{font-weight:800;color:#f5cedf}
+.origine-discovery-aside{background:linear-gradient(140deg,#f2ccda,#dca6ba);color:#160e15;border-radius:25px;padding:32px 29px;display:flex;flex-direction:column;align-items:flex-start;gap:15px}
+.origine-discovery .price{font-family:Georgia,'Cormorant Garamond',serif;font-size:clamp(4.4rem,7vw,6.4rem);line-height:.93;color:#150b13;letter-spacing:-.06em;font-weight:650}
+.origine-discovery .price-sub{font-size:.79rem;letter-spacing:.1em;font-weight:850;text-transform:uppercase;color:#33212b}
+.origine-discovery .details{font-size:.99rem;line-height:1.65;color:#291b24;margin:5px 0}
+.origine-discovery .details strong{color:#170c14}
+.origine-discovery .book-button{border-radius:999px;background:#170e16;color:#fff3f7;padding:15px 22px;font-size:.8rem;text-transform:uppercase;letter-spacing:.08em;font-weight:850;border:0;opacity:1;cursor:pointer;align-self:stretch;text-align:center;display:block;text-decoration:none;transition:background .2s ease,transform .2s ease}
+.origine-discovery .book-button:hover{background:#8d244e;transform:translateY(-2px)}
+.origine-discovery .booking-note{color:#4d3440;font-size:.76rem;line-height:1.5;margin:0}
+@media(max-width:800px){.origine-discovery{padding:25px 16px 65px}.origine-discovery-inner{grid-template-columns:minmax(0,1fr);gap:22px;padding:27px 23px}.origine-discovery h2{font-size:clamp(2.7rem,11vw,4rem)}.origine-discovery-aside{padding:26px 24px}}
 </style>
-</head>
+<style>
+.real-reviews{padding:84px 0 68px;background:linear-gradient(#110c12,#1c1018 55%,#0a080b);color:#f8eeee}.real-reviews .container{text-align:center}.real-reviews h2{font-family:Georgia,serif;font-size:clamp(44px,5vw,75px);font-weight:400;color:#e9b8cc;margin:12px 0}.real-reviews .eyebrow{color:#e9b8cc;font:700 12px Arial;letter-spacing:3px}.real-reviews p{color:#d9cad0;font-size:15px;line-height:1.6}.r-video{max-width:770px;margin:36px auto 38px;display:grid;grid-template-columns:1fr 1fr;align-items:center;gap:28px;text-align:left;padding:18px;border:1px solid #694253;border-radius:24px;background:#1a1018}.r-video video{display:block;width:100%;max-height:275px;border-radius:14px;background:black}.r-video strong{color:#edbfd2;font-size:24px;font-weight:800}.review-track{display:flex;gap:18px;overflow-x:auto;scroll-snap-type:x mandatory;padding:8px max(26px,calc((100vw - 1220px)/2)) 27px;scrollbar-color:#c18da6 transparent;scrollbar-width:thin}.tcard{background:#21141d;border:1px solid #644351;border-radius:22px;padding:14px;flex:0 0 306px;min-width:0;scroll-snap-align:center;align-self:flex-start}.tname{text-align:left;display:flex;align-items:center;gap:9px;color:#efc6d5;font-size:15px;font-weight:800;margin:4px 0 14px}.dot{width:12px;height:12px;border-radius:50%;background:#d99dbb}.timage img{width:100%;height:auto;display:block;border-radius:12px}.review-arrows{display:flex;align-items:center;justify-content:center;gap:22px;color:#ebbbce;font-size:23px}.review-arrows button{cursor:pointer;border:1px solid #915e73;background:#2b1925;color:#ebbbce;width:42px;height:42px;border-radius:50%;font-size:22px}@media(max-width:700px){.real-reviews{padding:56px 0}.r-video{grid-template-columns:1fr;margin:25px auto}.tcard{flex-basis:min(82vw,310px)}.review-track{padding-left:18px;padding-right:18px}}
+@media(max-width:920px){.hero-grid,.offers-grid,.split{grid-template-columns:minmax(0,1fr);gap:32px}.hero-grid>div{min-width:0}.hero-title-wide{font-size:clamp(2.55rem,10vw,4.2rem)}.nav-links{display:none}}
+</style><style>#temoignages .tcard{flex-basis:clamp(285px,28vw,350px)}#temoignages .timage{max-height:580px;overflow-y:auto;scrollbar-color:#9b677e #241921;scrollbar-width:thin}#temoignages .timage img{width:100%;height:auto;object-fit:contain}#temoignages .review-track{align-items:flex-start}#temoignages .tcard{align-self:flex-start}</style><style>
+/* Ajustements validés — espacement, prix et défilement des avis */
+.origine-discovery{padding-top:90px!important}
+.origine-discovery-aside .price{font-family:Arial,Helvetica,sans-serif!important;font-weight:800!important;font-size:clamp(3.15rem,4.7vw,4.1rem)!important;letter-spacing:-.055em!important;align-self:flex-end!important;text-align:right!important;width:100%!important;margin:6px 0 8px!important}
+.review-arrows{display:none!important}
+@media(max-width:800px){.origine-discovery{padding-top:65px!important}}
+</style></head>
 <body>
 <nav class="nav">
-<a class="logo" href="/">ALKÉMIA</a>
-<div class="nav-links">
-<a href="#vision">Vision</a>
-<a href="#apropos">Méthode</a>
-<a href="#offres">Accompagnements</a>
-</div>
+<div class="logo">ALKÉMIA</div>
+<div class="nav-links"><a href="#vision">Vision</a><a href="#apropos">À propos</a><a href="#offres">Offres</a></div>
 </nav>
 <section class="hero">
 <div class="container hero-grid">
@@ -538,10 +584,7 @@
 </div>
 </div>
 </section>
-<div class="marquee"><div class="marquee-track">
-<span>Libération</span><span>·</span><span>Reprogrammation identitaire</span><span>·</span><span>Astrologie appliquée</span><span>·</span><span>Transformation réelle</span><span>·</span>
-<span>Libération</span><span>·</span><span>Reprogrammation identitaire</span><span>·</span><span>Astrologie appliquée</span><span>·</span><span>Transformation réelle</span><span>·</span>
-</div></div>
+<div class="marquee"><div class="marquee-track"><span>Blocages inconscients</span><span>✦</span><span>Argent</span><span>✦</span><span>Amour</span><span>✦</span><span>Visibilité</span><span>✦</span><span>Réception</span><span>✦</span><span>Identité</span><span>✦</span><span>Blocages inconscients</span><span>✦</span><span>Argent</span><span>✦</span><span>Amour</span><span>✦</span><span>Visibilité</span><span>✦</span><span>Réception</span><span>✦</span><span>Identité</span><span>✦</span></div></div>
 <section class="intro" id="vision">
 <div class="container text-wrap vision-clean">
 <div class="eyebrow">La vision</div>
@@ -605,7 +648,7 @@
 <div class="origine-formulas">
 <div class="formula-line"><strong>Essentiel</strong><span>3 mois pour faire sauter le verrou que tu veux libérer en priorité.</span></div>
 <div class="formula-line"><strong>Intégral</strong><span>6 mois pour transformer ta vie à 360°.</span></div>
-<div class="formula-line"><strong>VIP</strong><span>9 mois pour révolutionner et expanser ta vie.</span></div>
+<div class="formula-line"><strong>VIP</strong><span>12 mois pour révolutionner et expanser ta vie.</span></div>
 </div>
 <div class="origine-infos"><strong>Format :</strong> individuel seulement.</div>
 <a class="button" href="https://alkemia.netlify.app/origine">Découvrir ORIGINE</a>
@@ -622,9 +665,30 @@
 </div>
 </div>
 </section>
+
+<section class="origine-discovery" id="seance-origine">
+ <div class="origine-discovery-inner">
+  <div>
+   <div class="mini-label">Séance individuelle</div>
+   <h2>Envie de vivre une séance ORIGINE avant de te lancer ?</h2>
+   <p>Tu envisages un accompagnement ORIGINE, mais t’as envie de découvrir concrètement ce qu’on peut faire ensemble avant de t’engager sur plusieurs mois ? <span class="emphasis">Commence par une séance.</span></p>
+   <p>Tu choisis parmi <strong>12 thématiques</strong> celle que tu veux travailler en priorité. On se concentre sur ce sujet, avec une véritable séance de libération et de reprogrammation personnalisée à partir de ton thème astral.</p>
+   <p><span class="emphasis">Tu vis l’expérience ORIGINE.</span> Tu découvres ma façon de travailler et tu peux ensuite choisir l’accompagnement qui te correspond, si tu décides de poursuivre.</p>
+  </div>
+  <div class="origine-discovery-aside">
+    <div class="price-sub">Une séance · Une thématique</div>
+    <div class="price">333 €</div>
+    <p class="details"><strong>À la réservation :</strong> tu sélectionnes la thématique que tu veux travailler parmi les 12 proposées.</p>
+    <p class="details"><strong>Le format :</strong> une séance individuelle ORIGINE, à vivre une seule fois.</p>
+    <a class="book-button" href="https://cal.com/aurelia-thiel/seance-origine" target="_blank" rel="noopener noreferrer">Réserver ma séance ORIGINE</a>
+    
+  </div>
+ </div>
+</section>
+<section class="real-reviews" id="temoignages"><div class="container text-center"><div class="eyebrow">TÉMOIGNAGES</div><h2>Elles l’ont vécu.</h2><p>Des retours spontanés, des mots à elles et des changements vécus.</p><div class="r-video"><video controls="" playsinline="" preload="metadata" src="lv_0_20240829110616.mp4"></video><div><strong>Isabelle raconte.</strong><p>Quand les prises de conscience deviennent des changements concrets.</p></div></div></div><div class="review-track" id="reviewsTrack"><article class="tcard"><div class="tname"><span class="dot"></span>Léna</div><div class="timage"><img alt="Capture de témoignage cliente 1, fournie et recadrée par Aurélia" loading="lazy" src="/temoignages/01.jpg"/></div></article><article class="tcard"><div class="tname"><span class="dot"></span>Valérie</div><div class="timage"><img alt="Capture de témoignage cliente 2, fournie et recadrée par Aurélia" loading="lazy" src="/temoignages/02.jpg"/></div></article><article class="tcard"><div class="tname"><span class="dot"></span>Célia</div><div class="timage"><img alt="Capture de témoignage cliente 3, fournie et recadrée par Aurélia" loading="lazy" src="/temoignages/03.jpg"/></div></article><article class="tcard"><div class="tname"><span class="dot"></span>Maya</div><div class="timage"><img alt="Capture de témoignage cliente 4, fournie et recadrée par Aurélia" loading="lazy" src="/temoignages/04.jpg"/></div></article><article class="tcard"><div class="tname"><span class="dot"></span>Noémie</div><div class="timage"><img alt="Capture de témoignage cliente 5, fournie et recadrée par Aurélia" loading="lazy" src="/temoignages/05.jpg"/></div></article><article class="tcard"><div class="tname"><span class="dot"></span>Éva</div><div class="timage"><img alt="Capture de témoignage cliente 6, fournie et recadrée par Aurélia" loading="lazy" src="/temoignages/06.jpg"/></div></article><article class="tcard"><div class="tname"><span class="dot"></span>Alice</div><div class="timage"><img alt="Capture de témoignage cliente 7, fournie et recadrée par Aurélia" loading="lazy" src="/temoignages/07.jpg"/></div></article><article class="tcard"><div class="tname"><span class="dot"></span>Zoé</div><div class="timage"><img alt="Capture de témoignage cliente 8, fournie et recadrée par Aurélia" loading="lazy" src="/temoignages/08.jpg"/></div></article><article class="tcard"><div class="tname"><span class="dot"></span>Nina</div><div class="timage"><img alt="Capture de témoignage cliente 9, fournie et recadrée par Aurélia" loading="lazy" src="/temoignages/09.jpg"/></div></article><article class="tcard"><div class="tname"><span class="dot"></span>Lucie</div><div class="timage"><img alt="Capture de témoignage cliente 10, fournie et recadrée par Aurélia" loading="lazy" src="/temoignages/10.jpg"/></div></article><article class="tcard"><div class="tname"><span class="dot"></span>Élodie</div><div class="timage"><img alt="Capture de témoignage cliente 11, fournie et recadrée par Aurélia" loading="lazy" src="/temoignages/11.jpg"/></div></article><article class="tcard"><div class="tname"><span class="dot"></span>Manon</div><div class="timage"><img alt="Capture de témoignage cliente 12, fournie et recadrée par Aurélia" loading="lazy" src="/temoignages/12.jpg"/></div></article><article class="tcard"><div class="tname"><span class="dot"></span>Camille</div><div class="timage"><img alt="Capture de témoignage cliente 13, fournie et recadrée par Aurélia" loading="lazy" src="/temoignages/13.jpg"/></div></article><article class="tcard"><div class="tname"><span class="dot"></span>Julie</div><div class="timage"><img alt="Capture de témoignage cliente 14, fournie et recadrée par Aurélia" loading="lazy" src="/temoignages/14.jpg"/></div></article><article class="tcard"><div class="tname"><span class="dot"></span>Sarah</div><div class="timage"><img alt="Capture de témoignage cliente 15, fournie et recadrée par Aurélia" loading="lazy" src="/temoignages/15.jpg"/></div></article><article class="tcard"><div class="tname"><span class="dot"></span>Chloé</div><div class="timage"><img alt="Capture de témoignage cliente 16, fournie et recadrée par Aurélia" loading="lazy" src="/temoignages/16.jpg"/></div></article><article class="tcard"><div class="tname"><span class="dot"></span>Aurélie</div><div class="timage"><img alt="Capture de témoignage cliente 17, fournie et recadrée par Aurélia" loading="lazy" src="/temoignages/17.jpg"/></div></article><article class="tcard"><div class="tname"><span class="dot"></span>Léa</div><div class="timage"><img alt="Capture de témoignage cliente 18, fournie et recadrée par Aurélia" loading="lazy" src="/temoignages/18.jpg"/></div></article><article class="tcard"><div class="tname"><span class="dot"></span>Anaïs</div><div class="timage"><img alt="Capture de témoignage cliente 19, fournie et recadrée par Aurélia" loading="lazy" src="/temoignages/19.jpg"/></div></article><article class="tcard"><div class="tname"><span class="dot"></span>Inès</div><div class="timage"><img alt="Capture de témoignage cliente 20, fournie et recadrée par Aurélia" loading="lazy" src="/temoignages/20.jpg"/></div></article><article class="tcard"><div class="tname"><span class="dot"></span>Emma</div><div class="timage"><img alt="Capture de témoignage cliente 21, fournie et recadrée par Aurélia" loading="lazy" src="/temoignages/21.jpg"/></div></article><article class="tcard"><div class="tname"><span class="dot"></span>Clara</div><div class="timage"><img alt="Capture de témoignage cliente 22, fournie et recadrée par Aurélia" loading="lazy" src="/temoignages/22.jpg"/></div></article><article class="tcard"><div class="tname"><span class="dot"></span>Lou</div><div class="timage"><img alt="Capture de témoignage cliente 23, fournie et recadrée par Aurélia" loading="lazy" src="/temoignages/23.jpg"/></div></article></div></section>
 <footer class="footer">
 <div class="container footer-inner">
-<div>© 2026 ALKÉMIA — Aurélia</div>
+<div>© ALKÉMIA — Tous droits réservés.</div>
 <div class="footer-links">
 <a href="https://docs.google.com/document/d/1bVmJjQSfazv7nd8ftZzTHWzcVkjz22Fmr9gwlgxfhRA/edit?usp=sharing" rel="noopener" target="_blank">Mentions légales</a>
 <a href="https://docs.google.com/document/d/1A_CqS_hgQ1QhMP5-CMTmOv99YE1vyS-Fz4R8g9S5Dtk/edit?usp=sharing" rel="noopener" target="_blank">Politique de confidentialité</a>
@@ -632,5 +696,5 @@
 </div>
 </div>
 </footer>
-</body>
+<script>(function(){const e=document.getElementById('reviewsTrack');let paused=false;e.addEventListener('pointerdown',()=>paused=true);e.addEventListener('pointerup',()=>{setTimeout(()=>paused=false,9000)});setInterval(()=>{if(paused||document.hidden)return;const end=e.scrollLeft+e.clientWidth>=e.scrollWidth-35;e.scrollTo({left:end?0:e.scrollLeft+325,behavior:'smooth'})},4300)})();</script></body>
 </html>
